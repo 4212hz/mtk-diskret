@@ -1,0 +1,2 @@
+# mtk-diskret
+matematika diskret
