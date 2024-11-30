@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>graph &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'graph';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Teori Himpunan" href="Himpunan.html" />
+    <link rel="prev" title="Deretan dan Rekursi" href="Deretan%20dan%20Rekursi.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                  Selamat Datang Di catatan Matematika Diskret saya
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Algoritma%20dari%20squential%20search%20dan%20binary%20search.html">Algoritma dari squential search dan binary search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BOOLEAN%20ALGEBRA.html">ALJABAR BOOLEAN DAN GERBANG LOGIKA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deretan%20dan%20Rekursi.html">Deretan dan Rekursi</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">graph</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Himpunan.html">Teori Himpunan</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="logika%20dan%20pembuktian%20Mohammad%20Aziz%20Huzaini%20240411100079.html">Logika Matematika</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgraph.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/graph.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>graph</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">graph</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-graph">Pengertian Graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-jenis-graph">Jenis-jenis graph</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graf-ganda-multi-graph">Graf ganda (multi graph):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graf-semu-pseudo-graph">Graf semu (pseudo graph):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graf-berarah-sederhana-directed-graph">Graf berarah sederhana (directed graph) :</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graf-berarah-ganda-multi-directed-graph">Graf berarah ganda (multi directed graph) :</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#social-network-analysis">Social Network Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-sentralitas">Langkah-langkah Sentralitas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tidak-semua-node-dalam-jaringan-adalah-penting-aktor">Tidak semua node dalam jaringan adalah penting  (aktor)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-node-yang-paling-penting-dalam-suatu-jaringan">Mencari node yang paling penting dalam suatu jaringan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#centrality-adalah-penentuan-aktor-menggunakan-ukuran-pada-social-network-centrality-dalam-teori-graf-dan-social-network-dibagi-menjadi-empat-jenis">Centrality adalah penentuan aktor menggunakan ukuran pada Social Network Centrality dalam teori graf dan social network .Dibagi menjadi empat jenis,</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenness-centrality">Betweenness Centrality</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#point-centrality">Point Centrality</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="graph">
+<h1>graph<a class="headerlink" href="#graph" title="Link to this heading">#</a></h1>
+<section id="pengertian-graph">
+<h2>Pengertian Graph<a class="headerlink" href="#pengertian-graph" title="Link to this heading">#</a></h2>
+<p>Graf digunakan untuk merepresentasikan objek-objek diskrit dan hubungan antara objek-objek tersebut, sehingga secara sederhana graf didefinisikan sebagai kumpulan titik yang dihubungkan oleh garis-garis/sisi.
+Sedangkan definisi matematis untuk graf adalah, pasangan terurut himpunan (V,E), dimana V merupakan himpunan beranggotakan titik-titik (vertex) dan E merupakan himpunan beranggotakan sisi-sisi (edges).
+Perhatikan Contoh Graf (V,E) berikut:
+<img alt="Capture22" src="https://hackmd.io/_uploads/BkUDg42fyg.png" />
+V:={1,2,3,4}
+E:={e1, e2, e3, e4, e5, e6, e7, e8}. Dapat dilihat bahwa Graf di atas merepresentasikan pasangan terurut G:={e1=(1,2),e2=(2,3),e3=(1,3),e4=(1,3),e5=(2,4),e6=(3,4),e7=(3,4),e8=(3,3)}.</p>
+</section>
+<section id="jenis-jenis-graph">
+<h2>Jenis-jenis graph<a class="headerlink" href="#jenis-jenis-graph" title="Link to this heading">#</a></h2>
+<section id="graf-ganda-multi-graph">
+<h3>Graf ganda (multi graph):<a class="headerlink" href="#graf-ganda-multi-graph" title="Link to this heading">#</a></h3>
+<p><img alt="Capture23" src="https://hackmd.io/_uploads/rJpWNNhzyg.png" /></p>
+</section>
+<section id="graf-semu-pseudo-graph">
+<h3>Graf semu (pseudo graph):<a class="headerlink" href="#graf-semu-pseudo-graph" title="Link to this heading">#</a></h3>
+<p><img alt="Capture24" src="https://hackmd.io/_uploads/Bk99X42Mye.png" /></p>
+</section>
+<section id="graf-berarah-sederhana-directed-graph">
+<h3>Graf berarah sederhana (directed graph) :<a class="headerlink" href="#graf-berarah-sederhana-directed-graph" title="Link to this heading">#</a></h3>
+<p><img alt="Capture25" src="https://hackmd.io/_uploads/HJuimV3GJx.png" /></p>
+</section>
+<section id="graf-berarah-ganda-multi-directed-graph">
+<h3>Graf berarah ganda (multi directed graph) :<a class="headerlink" href="#graf-berarah-ganda-multi-directed-graph" title="Link to this heading">#</a></h3>
+<p><img alt="Capture26" src="https://hackmd.io/_uploads/rJYa7V3Myl.png" /></p>
+</section>
+</section>
+<section id="social-network-analysis">
+<h2>Social Network Analysis<a class="headerlink" href="#social-network-analysis" title="Link to this heading">#</a></h2>
+<p><img alt="Picture1" src="https://hackmd.io/_uploads/HJQv_IdM1e.png" /></p>
+<p>Social Network Analysis adalah proses menyelidiki struktur sosial melalui penggunaan jaringan dan teori grafik. Artikel ini memperkenalkan ilmuwan data pada teori jaringan sosial, dengan pengantar singkat tentang teori grafik dan penyebaran informasi. merupakan bidang kajian yang mengekplorasitentang hubungan manusia dengan menggunakan teori graf. Implementasi Social Network Analysis dapat menjelaskan relasi atau hubungan antar aktor melalui visualisasi berbentuk graf. Relasi dalam analisis jaringan sosial dapat diproses dalam bentuk perhitungan yang disebut centrality dalam sebuah jaringan sosial sesuai dengan posisi masing-masing aktor di dalam struktur jaringan tersebut
+<img alt="Picture2" src="https://hackmd.io/_uploads/r1NdOUdfke.png" /></p>
+<p>terdapat node yang mewakili
+orang atau individu atau aktor.
+Relasi  antar objek  dapat dinyatakan dengan link
+atau edges yang terjadi antara aktor tersebut
+Social network terdiri dari banyak aktor
+yang mempunyai relasi satu sama lain hingga
+membentuk peta jaringan sosial yang dinyatakan dengan
+graph</p>
+</section>
+<section id="langkah-langkah-sentralitas">
+<h2>Langkah-langkah Sentralitas<a class="headerlink" href="#langkah-langkah-sentralitas" title="Link to this heading">#</a></h2>
+<p>Node yang sangat sentral memainkan peran kunci dalam jaringan, berfungsi sebagai hub untuk berbagai dinamika jaringan. Namun, definisi dan pentingnya sentralitas mungkin berbeda dari kasus ke kasus, dan dapat merujuk pada ukuran sentralitas yang berbeda:</p>
+<ul class="simple">
+<li><p>Derajat — jumlah tetangga dari node tersebut</p></li>
+<li><p>EigenVector / PageRank — lingkaran tetangga yang berulang</p></li>
+<li><p>Kedekatan — tingkat kedekatan dengan semua node</p></li>
+<li><p>Betweenness — jumlah jalur pendek yang melalui node
+<img alt="Capture21" src="https://hackmd.io/_uploads/S11ipQnzyx.png" /></p></li>
+</ul>
+<section id="tidak-semua-node-dalam-jaringan-adalah-penting-aktor">
+<h3>Tidak semua node dalam jaringan adalah penting  (aktor)<a class="headerlink" href="#tidak-semua-node-dalam-jaringan-adalah-penting-aktor" title="Link to this heading">#</a></h3>
+</section>
+<section id="mencari-node-yang-paling-penting-dalam-suatu-jaringan">
+<h3>Mencari node yang paling penting dalam suatu jaringan<a class="headerlink" href="#mencari-node-yang-paling-penting-dalam-suatu-jaringan" title="Link to this heading">#</a></h3>
+</section>
+<section id="centrality-adalah-penentuan-aktor-menggunakan-ukuran-pada-social-network-centrality-dalam-teori-graf-dan-social-network-dibagi-menjadi-empat-jenis">
+<h3>Centrality adalah penentuan aktor menggunakan ukuran pada Social Network Centrality dalam teori graf dan social network .Dibagi menjadi empat jenis,<a class="headerlink" href="#centrality-adalah-penentuan-aktor-menggunakan-ukuran-pada-social-network-centrality-dalam-teori-graf-dan-social-network-dibagi-menjadi-empat-jenis" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>degree centrality,</p></li>
+<li><p>betweeness centrality,</p></li>
+<li><p>closeness centrality</p></li>
+<li><p>eigenvector centrality</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="betweenness-centrality">
+<h1>Betweenness Centrality<a class="headerlink" href="#betweenness-centrality" title="Link to this heading">#</a></h1>
+<p>Betweenness Centrality adalah metrik yang mengukur
+seberapa penting suatu node sebagai penghubung antara
+node-node yang lain. Node-node ini juga sering disebut
+sebagai gatekeepers karena cenderung mengontrol aliran
+informasi antar komunitas. Betweenness centrality dapat
+dihitung dengan rumus:
+<img alt="Capture27" src="https://hackmd.io/_uploads/By0SUN2fyg.png" />
+Dengan
+𝜎𝑠𝑡 = jumlah jalur terpendek antara simpul s dan t
+𝜎𝑠𝑡(𝑣) = jumlah jalur terpendek yang melewati node v</p>
+<ul class="simple">
+<li><p>Skor betweeness Centrality mewakili seberapa besar informasi yang tersebar dari suatu aktor. Semakin besar skor, artinya aktor tersebut semakin berperan dalam penyebaran informasi</p></li>
+<li><p>Semakin banyak lintasan yang harus melewati persimpangan itu (misal tidak ada jalan alternatif), maka semakin penting arti persimpangan tersebut. Hal ini menandakan seberapa besar suatu node diperlukan sebagai penghubung dalam penyebaran informasi di dalam jaringan</p></li>
+<li><p>Ukuran ini juga dapat digunakan untuk mengidentifikasi boundary spanners, yaitu orang atau node yang berperan sebagai penghubung (jembatan) antara dua komunitas</p></li>
+<li><p>Menghitung jumlah lintasan terpendek yang melewati suatu node</p></li>
+<li><p>Node dengan  betweenness  tinggi  adalah  penting dalam komunikasi dan penyebaran informasi</p></li>
+<li><p>Betweenness Centrality
+<img alt="Picture3" src="https://hackmd.io/_uploads/ByUBhUdfJx.png" />
+<img alt="Picture4" src="https://hackmd.io/_uploads/Sy4U28_zJg.png" /></p></li>
+<li><p>Normalisasi Betweenness Centrality
+<img alt="Picture5" src="https://hackmd.io/_uploads/SJrFhU_fkx.png" /></p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="point-centrality">
+<h1>Point Centrality<a class="headerlink" href="#point-centrality" title="Link to this heading">#</a></h1>
+<p>Point centrality adalah metrik yang paling langsung
+menggambarkan sentralitas suatu node dalam suatu jaringan
+social. Derajat sentralitasnya dapat dihitung dengan jumlah
+node yang terhubung langsung denganya. Semakin tinggi
+derajat suatu node, semakin penting pula node itu di jaringan
+sosialnya. Point centrality dapat dihitung dengan rumus:
+<img alt="Capture28" src="https://hackmd.io/_uploads/H1dL_Nhfke.png" /></p>
+<p>Dengan
+𝐶𝑖
+𝐷 = bobot nilai degree centrality
+𝑘𝑖 = derajat node ke-1
+𝑁 = jumlah node dalam suatu graf</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="closeness-centrality">
+<h1>Closeness Centrality<a class="headerlink" href="#closeness-centrality" title="Link to this heading">#</a></h1>
+<p>Closeness Centrality adalah metrik yang mengukur
+posisi kasar suatu node dalam jaringan dan memberikan
+gambaran tentang berapa jauh jaraknya dengan node lain dari
+node yang dimaksud. Biasanya, metrik ini menghitung ratarata jarak semua jalur terpendek dari satu node ke semua node
+lain dalam suatu jaringan. Metrik ini bisa dihitung dengan
+rumus:
+<img alt="Capture29" src="https://hackmd.io/_uploads/H1bbYE3Mke.png" /></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Deretan%20dan%20Rekursi.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Deretan dan Rekursi</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Himpunan.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Teori Himpunan</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">graph</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-graph">Pengertian Graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-jenis-graph">Jenis-jenis graph</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graf-ganda-multi-graph">Graf ganda (multi graph):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graf-semu-pseudo-graph">Graf semu (pseudo graph):</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graf-berarah-sederhana-directed-graph">Graf berarah sederhana (directed graph) :</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graf-berarah-ganda-multi-directed-graph">Graf berarah ganda (multi directed graph) :</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#social-network-analysis">Social Network Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-sentralitas">Langkah-langkah Sentralitas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tidak-semua-node-dalam-jaringan-adalah-penting-aktor">Tidak semua node dalam jaringan adalah penting  (aktor)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-node-yang-paling-penting-dalam-suatu-jaringan">Mencari node yang paling penting dalam suatu jaringan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#centrality-adalah-penentuan-aktor-menggunakan-ukuran-pada-social-network-centrality-dalam-teori-graf-dan-social-network-dibagi-menjadi-empat-jenis">Centrality adalah penentuan aktor menggunakan ukuran pada Social Network Centrality dalam teori graf dan social network .Dibagi menjadi empat jenis,</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenness-centrality">Betweenness Centrality</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#point-centrality">Point Centrality</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
