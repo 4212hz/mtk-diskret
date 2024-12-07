@@ -11,6 +11,32 @@ Probabilitas adalah metrik untuk menentukan kemungkinan terjadinya suatu peristi
 Misalkan A dan B adalah dua kejadian yang terkait dengan suatu eksperimen acak. Maka, probabilitas terjadinya A dengan syarat B telah terjadi dan P(B) ≠ 0 disebut Probabilitas Bersyarat. Probabilitas ini dilambangkan dengan P (A/B). Jadi, Anda memperoleh:
 
 $P(A \mid B) = \frac{P(A \cap B)}{P(B)}$
+
+## Perhitungan Probabilitas 
+Sekarang kita kembali ke permasalahan kita: diberikan sampel fitur baru ( X₁, X₂ ), kita ingin memprediksi target B. Jika kita tetap menggunakan contoh dimana Suhu = sedang ( X₁ = M ) dan Angin = lemah ( X₂ = W ), kita harus menghitung
+$P(B = T \mid X_1 = M, X_2 = W) = \frac{P(X_1 = M \mid B = T) \cdot P(X_2 = W \mid B = T) \cdot P(B = T)}{P(X_1 = M) \cdot P(X_2 = W)}$
+Dan 
+$P(B = F \mid X_1 = M, X_2 = W) = \frac{P(X_1 = M \mid B = F) \cdot P(X_2 = W \mid B = F) \cdot P(B = F)}{P(X_1 = M) \cdot P(X_2 = W)}$
+untuk mencari yang terbesar dari keduanya. Baiklah, mari kita hitung berdasarkan bagiannya.
+
+## Probabilitas Prediksi
+Langkah lain yang diambil oleh model Naive Bayes adalah menghitung probabilitas relatif untuk kedua keputusan benar dan salah . Hal ini dilakukan karena probabilitas posterior tidak berjumlah sama dengan unit ( 0,63 > 0,42 = 1,05 ≠ 1 atau, jika Anda ingin lebih tepat, 5/12 + 5/8 = 25/24 ≠ 1 ).
+
+Kita dapat mendefinisikan PT sebagai probabilitas untuk memprediksi benar dan PF sebagai probabilitas untuk memprediksi salah sebagai berikut:
+$P(T) = \frac{P(B = T, X_1, X_2)}{P(B = T, X_1, X_2) + P(B = F, X_1, X_2)}$
+Dan
+$P(F) = \frac{P(B = F, X_1, X_2)}{P(B = F, X_1, X_2) + P(B = T \mid X_1, X_2)}$
+Perhatikan bahwa kami menghilangkan nilai aktual untuk X₁ dan X₂ demi kesederhanaan. Selain itu, sekarang kami dapat memastikan bahwa PT + PF = 1 .
+
+Keuntungan utama menggunakan probabilitas (yang jumlahnya sama dengan satuan) adalah jika kita menemukan probabilitas pertama lebih besar dari 0,5, kita dapat membuat keputusan tanpa menghitung probabilitas kedua. Atau, jika kita berhadapan dengan lebih dari dua kelas untuk variabel target kita, segera setelah kita menemukan satu probabilitas yang lebih besar dari 0,5, itu sudah menjadi jawaban kita.
+
+Dengan memasukkan probabilitas posterior yang telah kita hitung, kita memperoleh
+
+$P_{T} = \frac{\frac{5}{12}}{\frac{5}{12} + \frac{5}{8}} = \frac{2}{5} = 0.4$
+
+$P_{F} = \frac{\frac{5}{8}}{\frac{5}{12} + \frac{5}{8}} = \frac{3}{5} = 0.6$
+
+dan, sekali lagi, kita akan memilih B = F. Namun begitu kita menghitung probabilitas prediksi pertama, PT = 0.4 , karena PT < 0.5 , kita akan secara otomatis memprediksi kelas lainnya (selain T ); yaitu, F — yang, sekali lagi, berarti kita tidak boleh pergi ke pantai .
 # Teorema Bayes
 
 Teorema Bayes adalah rumus matematika untuk menghitung probabilitas bersyarat dalam probabilitas dan statistik. Dengan kata lain, rumus ini digunakan untuk mencari tahu seberapa besar kemungkinan suatu peristiwa berdasarkan kedekatannya dengan peristiwa lain. Hukum Bayes atau aturan Bayes adalah nama lain untuk teorema ini.

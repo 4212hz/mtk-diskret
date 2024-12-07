@@ -374,6 +374,8 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Probabilitas</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilitas-bersyarat">Probabilitas Bersyarat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-probabilitas">Perhitungan Probabilitas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilitas-prediksi">Probabilitas Prediksi</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-bayes">Teorema Bayes</a><ul class="visible nav section-nav flex-column">
@@ -400,6 +402,28 @@
 <h2>Probabilitas Bersyarat<a class="headerlink" href="#probabilitas-bersyarat" title="Link to this heading">#</a></h2>
 <p>Misalkan A dan B adalah dua kejadian yang terkait dengan suatu eksperimen acak. Maka, probabilitas terjadinya A dengan syarat B telah terjadi dan P(B) ≠ 0 disebut Probabilitas Bersyarat. Probabilitas ini dilambangkan dengan P (A/B). Jadi, Anda memperoleh:</p>
 <p><span class="math notranslate nohighlight">\(P(A \mid B) = \frac{P(A \cap B)}{P(B)}\)</span></p>
+</section>
+<section id="perhitungan-probabilitas">
+<h2>Perhitungan Probabilitas<a class="headerlink" href="#perhitungan-probabilitas" title="Link to this heading">#</a></h2>
+<p>Sekarang kita kembali ke permasalahan kita: diberikan sampel fitur baru ( X₁, X₂ ), kita ingin memprediksi target B. Jika kita tetap menggunakan contoh dimana Suhu = sedang ( X₁ = M ) dan Angin = lemah ( X₂ = W ), kita harus menghitung
+<span class="math notranslate nohighlight">\(P(B = T \mid X_1 = M, X_2 = W) = \frac{P(X_1 = M \mid B = T) \cdot P(X_2 = W \mid B = T) \cdot P(B = T)}{P(X_1 = M) \cdot P(X_2 = W)}\)</span>
+Dan
+<span class="math notranslate nohighlight">\(P(B = F \mid X_1 = M, X_2 = W) = \frac{P(X_1 = M \mid B = F) \cdot P(X_2 = W \mid B = F) \cdot P(B = F)}{P(X_1 = M) \cdot P(X_2 = W)}\)</span>
+untuk mencari yang terbesar dari keduanya. Baiklah, mari kita hitung berdasarkan bagiannya.</p>
+</section>
+<section id="probabilitas-prediksi">
+<h2>Probabilitas Prediksi<a class="headerlink" href="#probabilitas-prediksi" title="Link to this heading">#</a></h2>
+<p>Langkah lain yang diambil oleh model Naive Bayes adalah menghitung probabilitas relatif untuk kedua keputusan benar dan salah . Hal ini dilakukan karena probabilitas posterior tidak berjumlah sama dengan unit ( 0,63 &gt; 0,42 = 1,05 ≠ 1 atau, jika Anda ingin lebih tepat, 5/12 + 5/8 = 25/24 ≠ 1 ).</p>
+<p>Kita dapat mendefinisikan PT sebagai probabilitas untuk memprediksi benar dan PF sebagai probabilitas untuk memprediksi salah sebagai berikut:
+<span class="math notranslate nohighlight">\(P(T) = \frac{P(B = T, X_1, X_2)}{P(B = T, X_1, X_2) + P(B = F, X_1, X_2)}\)</span>
+Dan
+<span class="math notranslate nohighlight">\(P(F) = \frac{P(B = F, X_1, X_2)}{P(B = F, X_1, X_2) + P(B = T \mid X_1, X_2)}\)</span>
+Perhatikan bahwa kami menghilangkan nilai aktual untuk X₁ dan X₂ demi kesederhanaan. Selain itu, sekarang kami dapat memastikan bahwa PT + PF = 1 .</p>
+<p>Keuntungan utama menggunakan probabilitas (yang jumlahnya sama dengan satuan) adalah jika kita menemukan probabilitas pertama lebih besar dari 0,5, kita dapat membuat keputusan tanpa menghitung probabilitas kedua. Atau, jika kita berhadapan dengan lebih dari dua kelas untuk variabel target kita, segera setelah kita menemukan satu probabilitas yang lebih besar dari 0,5, itu sudah menjadi jawaban kita.</p>
+<p>Dengan memasukkan probabilitas posterior yang telah kita hitung, kita memperoleh</p>
+<p><span class="math notranslate nohighlight">\(P_{T} = \frac{\frac{5}{12}}{\frac{5}{12} + \frac{5}{8}} = \frac{2}{5} = 0.4\)</span></p>
+<p><span class="math notranslate nohighlight">\(P_{F} = \frac{\frac{5}{8}}{\frac{5}{12} + \frac{5}{8}} = \frac{3}{5} = 0.6\)</span></p>
+<p>dan, sekali lagi, kita akan memilih B = F. Namun begitu kita menghitung probabilitas prediksi pertama, PT = 0.4 , karena PT &lt; 0.5 , kita akan secara otomatis memprediksi kelas lainnya (selain T ); yaitu, F — yang, sekali lagi, berarti kita tidak boleh pergi ke pantai .</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="teorema-bayes">
@@ -516,6 +540,8 @@ Jawaban:
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Probabilitas</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilitas-bersyarat">Probabilitas Bersyarat</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-probabilitas">Perhitungan Probabilitas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilitas-prediksi">Probabilitas Prediksi</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-bayes">Teorema Bayes</a><ul class="visible nav section-nav flex-column">
